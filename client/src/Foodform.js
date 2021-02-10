@@ -1,12 +1,36 @@
-const App = () => (
-  <div className="app">
-    <h3>Happy hacking!</h3>
+import React from 'react'
+import "./source/server/db.js"
 
-    <div>
-            <form>
+class Foodform extends React.Component{
+
+    constructor(props){
+
+        super(props);
+        this.state = {
+
+
+        }
+    }
+
+    this.onChange = this.onChange.bind(this);
+
+
+    addProduct(){
+        alert('product was added')
+        if(//produktet alt finnes i db){
+
+        }
+
+
+
+    }
+    render(){
+
+        <div>
+            <form onSubmit={this.addProduct}>
         	    <label>
                     Name:
-                    <input type="text" />
+                    <input type="text" value={this.state.value} />
                 </label>
                 <label>
                     Price: 
@@ -23,7 +47,7 @@ const App = () => (
                 </label>
             </form>
         </div>
-  </div>
-);
 
-export default App;
+
+    }
+}
