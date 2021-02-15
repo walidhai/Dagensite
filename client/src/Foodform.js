@@ -8,7 +8,7 @@ class Foodform extends React.Component{
         super(props);
         this.state = {
             
-            name:"yo ",
+            name:" ",
             category: " ", 
             price: 0
 
@@ -27,6 +27,7 @@ class Foodform extends React.Component{
             [event.target.name]: value
 
         });
+        event.preventDefault();
     }
     
 
@@ -35,6 +36,8 @@ class Foodform extends React.Component{
         console.log(name);
         console.log(category);
         console.log(price);
+
+        if(!name || !price  || !category){return console.log("Please fill out the blanks");}
         fetch('http://localhost:3001/products', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -44,10 +47,15 @@ class Foodform extends React.Component{
                 price
 
             })
-         }).then(response=> {
+         }).then(response=> response.json()).then(data=>{
+             window.alert(data)
+         }) 
+         /**
+          * {
              console.log(response);
 
          })
+          */
 
         e.preventDefault();
     }
